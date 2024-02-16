@@ -1,0 +1,101 @@
+.services-section {
+    background-color: #000;
+    color: #ffffff;
+    padding: 4rem;
+    display: flex;
+    flex-direction: column; // Changed to stack title and wrapper vertically
+    align-items: center;
+  }
+  
+  .services-content {
+    flex: 1; // Adjust the ratio as needed
+    max-width: 600px;
+    padding-left: 2rem; // Add some space between the image and the text
+    text-align: left;
+  }
+  .services-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; // Full width to contain image and content side by side
+}
+  
+  .services-title {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    width: 100%; // Ensure full width
+    text-align: center; // Center the title
+  }
+
+  .bottom-text {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    width: 100%; // Ensure full width
+    text-align: center;
+    margin-top: 1.5rem;
+  }
+  
+  .services-description {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+  }
+  
+  .services-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+  
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+  
+  .services-button {
+    background-color: #E60023;
+    color: #ffffff;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: darken(#E60023, 10%);
+    }
+  }
+  
+  // Responsive adjustments
+  @media (max-width: 768px) {
+    .services-section {
+      flex-direction: column;
+    }
+  
+    .services-image {
+      img {
+        max-width: 100%;
+        height: auto;
+      }
+    }
+  
+    .services-content {
+      padding-left: 0;
+      text-align: center;
+      flex-direction: column;
+    }
+  
+    .services-button {
+      width: 100%;
+    }
+  }
+  
+  .services-image {
+    flex: 1; // Adjust the ratio as needed
+    margin-left: 2rem; // Adds space to the left of the image, pushing it to the right
+    img {
+      width: 100%; // Make the image responsive
+      height: auto;
+      display: block; // This ensures that there is no extra space below the image
+    }
+  }

@@ -1,0 +1,26 @@
+// AboutUs.scss
+.about-us {
+    padding: 2rem;
+    background-color: var(--black-color); // Adjust according to your theme
+    color: #333; // Adjust the text color as needed
+  
+    &__content {
+      max-width: 800px; // Set a max-width for the content
+      margin: 0 auto; // This will center the content block
+  
+      h2 {
+        text-align: center;
+        font-size: 2rem; // Adjust the size as needed
+        color: var(--secondary-color); // Adjust heading color as needed
+        margin-bottom: 1rem; // Space after the heading
+      }
+  
+      p {
+        color: var(--secondary-color);
+        font-size: 1rem; // Adjust the size as needed
+        line-height: 1.6; // Adjust the line height for readability
+        margin-bottom: 1rem; // Space after each paragraph
+      }
+    }
+  }
+  
