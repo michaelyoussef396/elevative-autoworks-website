@@ -44,10 +44,10 @@ const NavBar = () => {
               >
                 <HiX onClick={() => setToggle(false)} />
                 <ul className='app__navbar-links'>
-                  {['services', 'about us', 'contact us'].map((item) => (
-                    <li className='app__flex p-text' key={`link-${item}`}>
-                      <div></div>
-                      <Link to={`/${item.replace(/\s/g, '-').toLowerCase()}`}>{item}</Link>
+                  {['services', 'about-us', 'contact-us'].map((item) => (
+                    
+                    <li  key={item}>
+                      <a onClick={() => setToggle(false)} href={`${item}`}>{item}</a>
                     </li>
                   ))}
                 </ul>
