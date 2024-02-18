@@ -45,9 +45,9 @@ const NavBar = () => {
                 <HiX onClick={() => setToggle(false)} />
                 <ul className='app__navbar-links'>
                   {['services', 'about-us', 'contact-us'].map((item) => (
-                    
-                    <li  key={item}>
-                      <a onClick={() => setToggle(false)} href={`${item}`}>{item}</a>
+                    <li key={item}>
+                      {/* Use Link or handleLinkClick for SPA-friendly navigation */}
+                      <a onClick={() => handleLinkClick(`/${item}`)}>{item.replace('-', ' ')}</a>
                     </li>
                   ))}
                 </ul>
