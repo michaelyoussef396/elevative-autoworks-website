@@ -1,37 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ContactForm.scss';
 import { client } from '../../client';
 import emailjs from 'emailjs-com';
 
 const ContactForm = () => {
-  
+  const [submissionMessage, setSubmissionMessage] = useState('');
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     
+    // Create FormData object from the form
+    const formData = new FormData(e.target);
+    const formProps = Object.fromEntries(formData);
+  
+    // Now use formProps to access form values
     const contactFormData = {
-        _type: 'contactFormSubmission',
-        firstName: e.target.firstName.value,
-        lastName: e.target.lastName.value,
-        phoneNumber: e.target.phoneNumber.value,
-        email: e.target.email.value,
-        make: e.target.make.value,
-        model: e.target.model.value,
-        year: parseInt(e.target.year.value, 10),
-        mileage: parseInt(e.target.mileage.value, 10),
-        serviceType: e.target.serviceType.value,
-        vin: e.target.vin.value,
-        licensePlate: e.target.licensePlate.value,
-        additionalNotes: e.target.additionalNotes.value,
+      _type: 'contactFormSubmission',
+      firstName: formProps['firstName'],
+      lastName: formProps['lastName'],
+      phoneNumber: formProps['phoneNumber'],
+      email: formProps['email'],
+      make: formProps['make'],
+      model: formProps['model'],
+      year: parseInt(formProps['year'], 10),
+      mileage: parseInt(formProps['mileage'], 10),
+      serviceType: formProps['serviceType'],
+      vin: formProps['vin'],
+      licensePlate: formProps['licensePlate'],
+      additionalNotes: formProps['additionalNotes'],
     };
     
     try {
-        // Attempt to submit form data to Sanity
         const response = await client.create(contactFormData);
         console.log('Form submitted to Sanity', response);
-
-        // Prepare the email parameters for sending to yourself (or your business email)
+  
         const emailParamsForBusiness = {
-            to_name: 'Elevative Autoworks', // Your business name
+            to_name: 'Elevative Autoworks',
             from_name: `${contactFormData.firstName} ${contactFormData.lastName}`,
             message: `Contact Details:
                 \nName: ${contactFormData.firstName} ${contactFormData.lastName}
@@ -45,18 +49,19 @@ const ContactForm = () => {
                 \nVIN: ${contactFormData.vin}
                 \nLicense Plate: ${contactFormData.licensePlate}
                 \nAdditional Notes: ${contactFormData.additionalNotes}`,
-            // Assuming your EmailJS template is set up to send the email to a preconfigured business email
         };
-
-        // Send email to yourself (or your business email)
+  
         await emailjs.send('service_e36p1lx', 'template_go08g6f', emailParamsForBusiness, 'GXQgG25fJdDiHOS4r');
         console.log('Email successfully sent to business!');
-        // Send confirmation email to the user
-
+        
+        // Use alert for submission message
+        alert('Thank you for contacting us. We will get back to you soon.');
+        e.target.reset(); // This clears the form.
     } catch (error) {
         console.error('Error:', error);
+        alert('An error occurred. Please try again later.');
     }
-};
+  };
   
     return (
       <div>
@@ -107,10 +112,6 @@ const ContactForm = () => {
                 </select>
               </div>
               <div className='app__flex'>
-                <label htmlFor="vin">VIN</label>
-                <input type="text" id="vin" name="vin" required />
-              </div>
-              <div className='app__flex'>
                 <label htmlFor="licensePlate">License Plate</label>
                 <input type="text" id="licensePlate" name="licensePlate" required />
               </div>
@@ -124,6 +125,7 @@ const ContactForm = () => {
               </div>
 
           </form>
+          {submissionMessage && <p className="submission-message">{submissionMessage}</p>}
         </div>
       </div>
     )

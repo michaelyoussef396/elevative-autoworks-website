@@ -10,8 +10,8 @@ const NavBar = () => {
   const [toggle, setToggle] = useState(false);
   const navigate = useNavigate();
   const handleLinkClick = (path) => {
-    setToggle(false); // Close the mobile menu
-    navigate(path); // Navigate to the path
+    setToggle(false);
+    navigate(path);
   }
 
   return (

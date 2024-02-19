@@ -7,11 +7,11 @@ const ServiceList = () => {
   const navigate = useNavigate();
   return (
     <section className="services-section">
-      <h2 className="services-title">Factory Services</h2> {/* This line has been moved */}
+      <h2 className="services-title">Factory Services</h2>
       <p className="services-description">
             Tired of going to the dealership for your car's factory services? We've got you covered!
       </p>
-      <div className="services-wrapper"> {/* New wrapper div */}
+      <div className="services-wrapper">
         <div className="services-image">
             <img src={images.shop} alt="Our Shop" />
         </div>

@@ -1,5 +1,4 @@
 import React from 'react'
-import './Home.scss'
 import Hero from '../../container/Hero/Hero'
 import AboutUs from '../../container/AboutUs/AboutUs'
 import Service from '../../container/Service/Service'

@@ -13,7 +13,7 @@ const Service = () => {
     
         client.fetch(query)
             .then((data) => {
-                console.log('Data received:', data); // This will log the data received from the query
+                console.log('Data received:', data);
                 setServices(data);
             })
     }, []);

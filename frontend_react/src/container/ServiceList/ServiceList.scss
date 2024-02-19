@@ -3,34 +3,34 @@
     color: #ffffff;
     padding: 4rem;
     display: flex;
-    flex-direction: column; // Changed to stack title and wrapper vertically
+    flex-direction: column;
     align-items: center;
   }
   
   .services-content {
-    flex: 1; // Adjust the ratio as needed
+    flex: 1; 
     max-width: 600px;
-    padding-left: 2rem; // Add some space between the image and the text
+    padding-left: 2rem;
     text-align: left;
   }
   .services-wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%; // Full width to contain image and content side by side
+    width: 100%; 
 }
   
   .services-title {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    width: 100%; // Ensure full width
-    text-align: center; // Center the title
+    width: 100%; 
+    text-align: center; 
   }
 
   .bottom-text {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    width: 100%; // Ensure full width
+    width: 100%; 
     text-align: center;
     margin-top: 1.5rem;
   }
@@ -91,11 +91,11 @@
   }
   
   .services-image {
-    flex: 1; // Adjust the ratio as needed
-    margin-left: 2rem; // Adds space to the left of the image, pushing it to the right
+    flex: 1; 
+    margin-left: 2rem;
     img {
-      width: 100%; // Make the image responsive
+      width: 100%;
       height: auto;
-      display: block; // This ensures that there is no extra space below the image
+      display: block;
     }
   }
